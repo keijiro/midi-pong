@@ -30,12 +30,16 @@ public class Ball : MonoBehaviour
             if (collider.tag == "Wall") {
                 if (direction.y * collider.transform.position.y > 0.0f) {
                     direction.Set(direction.x, -direction.y, 0);
+                    audio.pitch = 1.0f;
+                    audio.Play ();
                 }
             } else {
                 if (direction.x * collider.transform.position.x > 0.0f) {
                     var vy = collider.transform.position.y - transform.position.y;
                     direction = new Vector3(-direction.x, vy, 0).normalized;
                     velocity *= accel;
+                    audio.pitch = 2.0f;
+                    audio.Play ();
                 }
             }
         }
