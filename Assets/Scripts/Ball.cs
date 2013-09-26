@@ -9,9 +9,11 @@ public class Ball : MonoBehaviour
     public float xLimit = 16.0f;
     Vector3 direction;
 
+    public static Vector3 initialDirection = Vector3.right;
+
     void Start ()
     {
-        direction = new Vector3 (1, 0, 0);
+        direction = initialDirection;
     }
 
     void Update ()
@@ -19,6 +21,7 @@ public class Ball : MonoBehaviour
         transform.position += direction * (velocity * Time.deltaTime);
 
         if (Mathf.Abs (transform.position.x) > xLimit) {
+            GameObject.FindWithTag("Manager").SendMessage ("Increment", transform.position.x < 0.0f ? 1 : 0);
             Destroy (gameObject);
         }
 
