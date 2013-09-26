@@ -42,6 +42,8 @@ public class MidiInstruction : MonoBehaviour
 
     void OnGUI ()
     {
-        GUI.Label (new Rect (0, 0, Screen.width, Screen.height), message, labelStyle);
+        var w = Screen.width;
+        var h = Screen.height;
+        GUI.Label (new Rect (0, 0.2f * h, w, 0.6f * h), message, labelStyle);
     }
 }

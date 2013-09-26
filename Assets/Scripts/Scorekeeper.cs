@@ -31,10 +31,10 @@ public class Scorekeeper : MonoBehaviour
 
     void OnGUI ()
     {
-        var w = Screen.width / 2;
+        var w = Screen.width * 0.5f;
         var h = Screen.height;
-        GUI.Label (new Rect (0, 0, w, h), scores [0].ToString (), labelStyle);
-        GUI.Label (new Rect (w, 0, w, h), scores [1].ToString (), labelStyle);
+        GUI.Label (new Rect (0, h * 0.2f, w, h * 0.6f), scores [0].ToString (), labelStyle);
+        GUI.Label (new Rect (w, h * 0.2f, w, h * 0.6f), scores [1].ToString (), labelStyle);
     }
 
     void Increment (int index)
